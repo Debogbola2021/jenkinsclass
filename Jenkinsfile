@@ -1,47 +1,32 @@
 //scripted
-// node {
-// 	stage('Build') {
-// 		echo "Build"
-// 	}
-// 	stage('Test') {
-// 		echo "Test"
-// 	}
-// 	stage('Integration Test') {
-// 		echo "Integration Test"
-// 	}
+// node{
+//     stage('Build'){
+//         echo "build"
+//     }
+//     stage('Test'){
+//         echo "test"
+//     }
 // }
 
 //declarative
 pipeline{
-	agent any
-	stages {
-		stage('Build') {
-			steps{
-				echo "Build"
-			}
-		}
-		stage('Test') {
-			steps{
-				echo "Test"
-			
-			}
-		}
-		stage('Integration Test') {
-			steps{
+    agent any
+    stage{
+        stage('Build'){
+            steps{
+                echo "build completed"
+            }
+        }
+        stage('Test'){
+            steps{
+                echo "testing completed"
+            }
+        }
+        stage('Integrated Test'){
+            steps{
+                echo "integration completed"
+            }
+        }
+    }
 
-				echo "Integration Test"
-			}
-		}
-	}
-	post{
-		always {
-			echo "Always"
-		}
-		success {
-			echo "Success"
-		}
-		failure {
-			echo "Failure"
-		}
-	}
 }
